@@ -5,7 +5,6 @@ import EventBooking.app.dtos.request.RegisterRequest;
 import EventBooking.app.dtos.response.LoginResponse;
 import EventBooking.app.dtos.response.RegisterResponse;
 
-public interface BookingService {
+public interface UserService {
     RegisterResponse register(RegisterRequest registerrequest);
-    LoginResponse login(LoginRequest request);
 }
