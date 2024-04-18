@@ -43,4 +43,12 @@ public class UserServiceApp implements UserService {
         return user != null;
     }
 
+    public void saveUser(User user){
+        userRepository.save(user);
+    }
+
+    public User findUserBy(Long userId) throws BookingException {
+        return userRepository.findById(userId).orElseThrow(()->new BookingException("user not found"));
+    }
+
 }

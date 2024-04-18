@@ -1,5 +1,6 @@
 package EventBooking.app.services;
 
+import EventBooking.app.data.models.Category;
 import EventBooking.app.data.repositories.UserRepository;
 import EventBooking.app.exception.BookingException;
 import lombok.AllArgsConstructor;
@@ -37,4 +38,30 @@ public class Validate {
         }
     }
 
+    public static void validateAttendeeCount(int attendeeCount) throws BookingException{
+        String attendee = String.valueOf(attendeeCount);
+
+        if (attendee.trim().isEmpty()){
+            throw new BookingException("Error: field empty! kindly provide the number of attendees");
+        }
+        if (attendeeCount < 0){
+            throw new BookingException("number of attendee cannot be less than 0");
+        }
+    }
+
+    public static void validateDescription(String description) throws BookingException{
+        if (description == null || description.trim().isEmpty()){
+           throw new BookingException("Error: empty field! kindly provide event description");
+        }
+        if (description.length() > 500){
+            throw new BookingException("length of characters cannot exceed 500");
+        }
+    }
+
+    public static Category validateCategory(String category){
+        for (Category categories: Category.values()){
+            if (categories.name().equalsIgnoreCase(category)) return categories;
+        }
+        return null;
+    }
 }
