@@ -16,4 +16,5 @@ public class CreateEventRequest {
     private int attendees;
     private String description;
     private String category;
+    private Long userId;
 }

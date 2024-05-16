@@ -14,7 +14,7 @@ import static EventBooking.app.util.Mapper.userMap;
 
 @Service
 @AllArgsConstructor
-public class UserServiceApp implements UserService {
+public class  UserServiceApp implements UserService {
 
     private final UserRepository userRepository;
 
