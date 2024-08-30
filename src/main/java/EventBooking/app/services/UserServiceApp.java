@@ -3,6 +3,8 @@ package EventBooking.app.services;
 import EventBooking.app.data.models.User;
 import EventBooking.app.data.repositories.UserRepository;
 import EventBooking.app.dtos.request.RegisterRequest;
+import EventBooking.app.dtos.request.UserCreateEventRequest;
+import EventBooking.app.dtos.response.CreateEventResponse;
 import EventBooking.app.dtos.response.RegisterResponse;
 import EventBooking.app.exception.BookingException;
 import lombok.AllArgsConstructor;
@@ -36,6 +38,11 @@ public class  UserServiceApp implements UserService {
         response.setId(user.getId());
 
         return response;
+    }
+
+    @Override
+    public CreateEventResponse createEvent(UserCreateEventRequest eventRequest) throws BookingException {
+        return null;
     }
 
     private boolean emailExist(String email) {
