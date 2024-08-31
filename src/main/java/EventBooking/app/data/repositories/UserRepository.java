@@ -1,10 +1,9 @@
 package EventBooking.app.data.repositories;
 
 import EventBooking.app.data.models.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findUserByUsername(String username);
+public interface UserRepository extends MongoRepository<User, Long> {
 
     User findUserByEmail(String email);
 }

@@ -8,6 +8,7 @@ import EventBooking.app.dtos.response.CreateEventResponse;
 import EventBooking.app.dtos.response.SearchEventResponse;
 import EventBooking.app.exception.BookingException;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 @Service

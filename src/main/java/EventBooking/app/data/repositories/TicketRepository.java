@@ -1,7 +1,7 @@
 package EventBooking.app.data.repositories;
 
 import EventBooking.app.data.models.Ticket;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface TicketRepository extends JpaRepository<Ticket, Long> {
+public interface TicketRepository extends MongoRepository<Ticket, Long> {
 }

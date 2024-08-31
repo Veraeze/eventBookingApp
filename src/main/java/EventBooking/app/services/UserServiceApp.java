@@ -11,31 +11,30 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import static EventBooking.app.services.Validate.*;
-import static EventBooking.app.util.Mapper.userMap;
 
 
 @Service
 @AllArgsConstructor
 public class  UserServiceApp implements UserService {
 
-    private final UserRepository userRepository;
+//    private UserRepository userRepository;
 
 
     @Override
     public RegisterResponse register(RegisterRequest request) {
-        validateName(request.getName());
-        validateEmail(request.getEmail());
-        validatePassword(request.getPassword());
-
-        if (emailExist(request.getEmail())){
-            throw new BookingException("A user with this email already exists, kindly try again with a different email");
-        }
-
-        User user = userMap(request.getName(), request.getEmail(), request.getPassword());
-        userRepository.save(user);
+//        validateName(request.getName());
+//        validateEmail(request.getEmail());
+//        validatePassword(request.getPassword());
+//
+//        if (emailExist(request.getEmail())){
+//            throw new BookingException("A user with this email already exists, kindly try again with a different email");
+//        }
+//
+//        User user = userMap(request.getName(), request.getEmail(), request.getPassword());
+//        userRepository.save(user);
 
         RegisterResponse response = new RegisterResponse();
-        response.setId(user.getId());
+//        response.setId(user.getId());
 
         return response;
     }
@@ -46,16 +45,16 @@ public class  UserServiceApp implements UserService {
     }
 
     private boolean emailExist(String email) {
-        User user = userRepository.findUserByEmail(email);
+        User user = new User();
         return user != null;
     }
 
-    public void saveUser(User user){
-        userRepository.save(user);
-    }
+//    public void saveUser(User user){
+//        userRepository.save(user);
+//    }
 
-    public User findUserBy(Long userId) throws BookingException {
-        return userRepository.findById(userId).orElseThrow(()->new BookingException("user not found"));
-    }
+//    public User findUserBy(Long userId) throws BookingException {
+//        return userRepository.findById(userId).orElseThrow(()->new BookingException("user not found"));
+//    }
 
 }
